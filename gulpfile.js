@@ -1,6 +1,22 @@
-function tarea( done) {
+/* function tarea( done) {
     console.log('Mi primer tarea');
     done();
 }
 
-exports.primerTarea = tarea;
+exports.primerTarea = tarea; */
+
+const {src, dest} = require("gulp");
+const sass = require('gulp-sass')(require('sass'))
+
+function css(done)  {
+    // Identificar el archivo sass
+    src('src/scss/app.scss')
+    //compilarlo
+    .pipe( sass())
+    //almacena en el disco duro
+    .pipe(dest('build/css'));
+
+    done();//callback que avisa a gulp que llegamos al final
+}
+
+exports.css = css;
