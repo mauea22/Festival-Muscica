@@ -1,0 +1,10 @@
+@use 'base' as v;
+
+
+body{
+    background-color: v.$rojo;
+}
+
+h1{
+    color: v.$black;
+}
