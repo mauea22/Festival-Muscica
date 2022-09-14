@@ -6,11 +6,13 @@
 exports.primerTarea = tarea; */
 
 const {src, dest, watch} = require("gulp");
-const sass = require('gulp-sass')(require('sass'))
+const sass = require('gulp-sass')(require('sass'));
+const plumber = require('gulp-plumber');
 
 function css(done)  {
     // Identificar el archivo sass
     src('src/scss/**/*.scss') //los **/* hace que de forma recursiva se compilen todos los archivos scss
+    .pipe(plumber())
     //compilarlo
     .pipe( sass())
     //almacena en el disco duro
