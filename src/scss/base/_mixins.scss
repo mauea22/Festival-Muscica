@@ -1,0 +1,36 @@
+
+@use 'variables' as v;
+
+//declaracion de un mixin
+// Los mixins se pueden pensar como codigo reutilizable para elementos repetitivos dentro de nuestra proyecto y asi evitamos escribir el mismo código repetidamente
+
+// @mixin heading {
+//     text-transform: uppercase;
+//     font-size: 2.4rem;
+//     color: black;
+// }
+
+
+@mixin telefono {
+    @media (min-width:v.$telefono){
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width:v.$tablet){
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width:v.$desktop){
+        @content;
+    }
+}
+
+@mixin desktopLg {
+    @media (min-width:v.$desktopLg){
+        @content;
+    }
+}
