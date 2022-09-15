@@ -1,0 +1,41 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+
+.video{
+    position: relative;
+    max-height: 70rem;
+
+    .overlay{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    video{
+        width: 100%;
+    }
+}
+
+
+.contenido-video{
+    z-index: 1;
+
+    h2 {
+        font-size: 7rem;
+        color: v.$blanco;
+        margin: 0;
+    }
+
+    p {
+        background-color: v.$rosa;
+        display: inline-block; //toma el espacio que requiere+
+        padding: 1rem 2rem;
+        color: v.$blanco;
+        font-weight: 700;
+        font-size: 2.4rem;
+    }
+}

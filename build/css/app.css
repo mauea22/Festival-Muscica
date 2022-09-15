@@ -395,3 +395,36 @@ h3 {
 .navegacion-principal a:hover {
   color: #FEF46D;
 }
+
+.video {
+  position: relative;
+  max-height: 70rem;
+}
+.video .overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.video video {
+  width: 100%;
+}
+
+.contenido-video {
+  z-index: 1;
+}
+.contenido-video h2 {
+  font-size: 7rem;
+  color: #ffffff;
+  margin: 0;
+}
+.contenido-video p {
+  background-color: #F53756;
+  display: inline-block;
+  padding: 1rem 2rem;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 2.4rem;
+}
