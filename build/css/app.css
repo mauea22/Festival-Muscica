@@ -323,10 +323,11 @@ body {
   font-size: 1.6rem;
 }
 
-a {
-  font-size: 2rem;
+p {
+  font-size: 1.5rem;
   color: #000000;
   text-decoration: none;
+  line-height: 1.5;
 }
 
 .contenedor {
@@ -404,6 +405,7 @@ img {
 .video {
   position: relative;
   max-height: 65rem;
+  min-height: 40rem;
   overflow: hidden;
 }
 .video .overlay {
@@ -416,7 +418,7 @@ img {
 }
 .video video {
   display: block;
-  width: 100%;
+  width: auto;
 }
 @media (min-width: 992px) {
   .video video {
@@ -429,14 +431,9 @@ img {
   z-index: 1;
 }
 .contenido-video h2 {
-  font-size: 4rem;
+  font-size: 7rem;
   color: #000000;
   margin: 0;
-}
-@media (min-width: 480px) {
-  .contenido-video h2 {
-    font-size: 7rem;
-  }
 }
 .contenido-video p {
   background-color: #F53756;
@@ -444,26 +441,31 @@ img {
   padding: 1rem 2rem;
   color: #000000;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 2rem;
   margin: 0;
-}
-@media (min-width: 480px) {
-  .contenido-video p {
-    font-size: 2rem;
-  }
 }
 
 .sobre-festival {
   padding: 5rem 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 2rem;
+}
+@media (min-width: 768px) {
+  .sobre-festival {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+  }
 }
 
 .contenido-festival {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  .contenido-festival {
+    margin-top: 0;
+  }
 }
 .contenido-festival h2 {
   margin-bottom: 1rem;

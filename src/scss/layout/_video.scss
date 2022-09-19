@@ -5,6 +5,7 @@
 .video{
     position: relative;
     max-height: 65rem;
+    min-height: 40rem;
     overflow: hidden;
 
     .overlay{
@@ -18,10 +19,10 @@
 
     video{
         display: block;
-        width: 100%;
+        width: auto;
 
         @include m.desktop {
-            width: 100%; 
+            width: 100%;
             min-height: 60rem;   
         }
     }
@@ -32,13 +33,9 @@
     z-index: 1;
 
     h2 {
-        font-size: 4rem;
+        font-size: 7rem;
         color: v.$negro;
         margin: 0;
-
-        @include m.telefono {
-            font-size:7rem;
-        }
     }
 
     p {
@@ -47,11 +44,7 @@
         padding: 1rem 2rem;
         color: v.$negro;
         font-weight: 700;
-        font-size: 1rem;
+        font-size: 2rem;
         margin: 0;
-
-        @include m.telefono {
-            font-size:2rem;
-        }
     }
 }

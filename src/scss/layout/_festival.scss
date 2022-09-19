@@ -4,15 +4,22 @@
 
 .sobre-festival{
     padding: 5rem 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 2rem;
+    
+    @include m.tablet {
+        @include m.grid(2);
+    }
 }
 
 .contenido-festival{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 3rem;
+
+    @include m.tablet {
+        margin-top: 0;
+    }
+
     h2{
         margin-bottom: 1rem;
     }
