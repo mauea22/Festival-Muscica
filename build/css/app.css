@@ -403,8 +403,8 @@ img {
 
 .video {
   position: relative;
-  max-height: 60rem;
-  min-height: 40rem;
+  max-height: 65rem;
+  overflow: hidden;
 }
 .video .overlay {
   position: absolute;
@@ -416,12 +416,12 @@ img {
 }
 .video video {
   display: block;
-  width: auto;
+  width: 100%;
 }
 @media (min-width: 992px) {
   .video video {
     width: 100%;
-    min-height: 50rem;
+    min-height: 60rem;
   }
 }
 
@@ -429,9 +429,14 @@ img {
   z-index: 1;
 }
 .contenido-video h2 {
-  font-size: 7rem;
+  font-size: 4rem;
   color: #000000;
   margin: 0;
+}
+@media (min-width: 480px) {
+  .contenido-video h2 {
+    font-size: 7rem;
+  }
 }
 .contenido-video p {
   background-color: #F53756;
@@ -439,8 +444,13 @@ img {
   padding: 1rem 2rem;
   color: #000000;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1rem;
   margin: 0;
+}
+@media (min-width: 480px) {
+  .contenido-video p {
+    font-size: 2rem;
+  }
 }
 
 .sobre-festival {
