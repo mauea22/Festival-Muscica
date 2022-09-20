@@ -12,7 +12,10 @@ const sass = require('gulp-sass')(require('sass'));
 const plumber = require('gulp-plumber');
 
 //imagenes
+const avif = require('gulp-avif');
 const webp = require('gulp-webp');
+const imagemin = require('gulp-imagemin');
+const cache = require('gulp-cache');
 
 
 //? FUNCION QUE IDENTIFICA, COMPILA Y ALMACENA TODOS LOS ARCHIVOS SCSS A CSS
@@ -53,6 +56,35 @@ function versionWebp(done) {
     done() //avisa que la funcion terminó
 }
 
+
+//? FUNCION PARA ALIGERAR LAS IMAGENES
+
+function imagenes(done){
+    const opciones = {
+        optimizationLevel: 3
+    }
+    //scr es la ruta donde estan todas las imagenes
+    src('src/img/**/*.{jpg,png}')
+    .pipe( cache(imagemin(opciones))) //paso opciones como parametro para que toma la quality
+    .pipe( dest('build/img')) //destino 
+
+    done()
+}
+
+function versionAvif(done){
+    const opciones = {
+        quality: 50
+    }
+    //scr es la ruta donde estan todas las imagenes
+    src('src/img/**/*.{jpg,png}')
+    .pipe( avif(opciones)) //paso opciones como parametro para que toma la quality
+    .pipe( dest('build/img')) //destino 
+
+    done()
+}
+
 exports.css = css;
+exports.imagenes = imagenes;
 exports.versionWebp = versionWebp;
-exports.dev = parallel(versionWebp, dev); //paralell ejecuta las tareas en paralelo 
+exports.versionAvif = versionAvif;
+exports.dev = parallel(versionAvif,imagenes,versionWebp, dev); //paralell ejecuta las tareas en paralelo 
