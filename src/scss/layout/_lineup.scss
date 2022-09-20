@@ -33,5 +33,21 @@
     }
 }
 
+.nombre-escenario::after{
+    content: '';
+    display: block;
+    width: 20rem;
+    height: 10rem;
+    background-size: 15rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
 
+.bg-verde{
+    background-color: v.$verde;
+}
+
+.bg-amarillo{
+    background-color: v.$amarillo;
+}
 

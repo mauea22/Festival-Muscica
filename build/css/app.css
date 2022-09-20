@@ -503,3 +503,21 @@ img {
 .escenario-contenedor .escenario {
   padding-top: 2rem;
 }
+
+.nombre-escenario::after {
+  content: "";
+  display: block;
+  width: 20rem;
+  height: 10rem;
+  background-size: 15rem;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.bg-verde {
+  background-color: #4CB8B3;
+}
+
+.bg-amarillo {
+  background-color: #FEF46D;
+}
