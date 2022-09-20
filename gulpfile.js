@@ -48,11 +48,11 @@ function versionWebp(done) {
     //scr es la ruta donde estan todas las imagenes
     src('src/img/**/*.{jpg,png}')
     .pipe( webp(opciones)) //paso opciones como parametro para que toma la quality
-    .pipe( dest('/build/img')) //destino donde se guardan las imagenes
+    .pipe( dest('build/img')) //destino donde se guardan las imagenes
 
     done() //avisa que la funcion terminó
 }
 
 exports.css = css;
-exports.dev = parallel(versionWebp, dev); //paralell ejecuta las tareas en paralelo 
 exports.versionWebp = versionWebp;
+exports.dev = parallel(versionWebp, dev); //paralell ejecuta las tareas en paralelo 
