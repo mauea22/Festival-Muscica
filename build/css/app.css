@@ -354,6 +354,8 @@ h3 {
 
 img {
   max-width: 100%;
+  width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -473,4 +475,31 @@ img {
 .contenido-festival .fecha {
   color: #F53756;
   font-weight: 700;
+}
+
+.lineup {
+  background-color: #F53756;
+  padding: 5rem 0;
+}
+.lineup h3, .lineup p {
+  text-align: center;
+  color: #ffffff;
+}
+.lineup .dia {
+  text-transform: uppercase;
+  margin-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .escenario-contenedor {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+  }
+}
+.escenario-contenedor p {
+  color: #000000;
+}
+.escenario-contenedor .escenario {
+  padding-top: 2rem;
 }
