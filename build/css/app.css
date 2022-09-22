@@ -487,7 +487,9 @@ img {
 }
 .lineup .dia {
   text-transform: uppercase;
-  margin-bottom: 5rem;
+  margin: 5rem;
+  font-weight: 700;
+  font-size: 2rem;
 }
 
 @media (min-width: 768px) {
@@ -500,11 +502,21 @@ img {
 .escenario-contenedor p {
   color: #000000;
 }
-.escenario-contenedor .escenario {
-  padding-top: 2rem;
-}
 
-.nombre-escenario::after {
+.escenario {
+  padding-top: 2rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 480px) {
+  .escenario {
+    margin-bottom: 1rem;
+  }
+}
+.escenario p.nombre-escenario {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.escenario .nombre-escenario::after {
   content: "";
   display: block;
   width: 20rem;
@@ -512,12 +524,40 @@ img {
   background-size: 15rem;
   background-repeat: no-repeat;
   background-position: center center;
+  margin: 2rem auto 0 auto;
+}
+
+.edm .nombre-escenario::after {
+  background-image: url(../img/icono_edm.png);
+}
+
+.rock .nombre-escenario::after {
+  background-image: url(../img/icono_rock.png);
+}
+
+.calendario {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.calendario li {
+  padding: 2.5rem;
+  font-weight: 700;
+}
+.calendario li span {
+  font-weight: 400;
 }
 
 .bg-verde {
   background-color: #4CB8B3;
 }
+.bg-verde li:nth-child(odd) {
+  background-color: #3b9691;
+}
 
 .bg-amarillo {
   background-color: #FEF46D;
+}
+.bg-amarillo li:nth-child(odd) {
+  background-color: #feef2b;
 }

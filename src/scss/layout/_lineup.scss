@@ -14,7 +14,9 @@
 
     .dia{
         text-transform: uppercase;
-        margin-bottom: 5rem;
+        margin: 5rem;
+        font-weight: 700;
+        font-size: 2rem;
     }
 }
 
@@ -28,26 +30,71 @@
         color: v.$negro;
     }
 
-    .escenario{
-        padding-top: 2rem;
-    }
+    
 }
 
-.nombre-escenario::after{
-    content: '';
-    display: block;
-    width: 20rem;
-    height: 10rem;
-    background-size: 15rem;
-    background-repeat: no-repeat;
-    background-position: center center;
+.escenario{
+    padding-top: 2rem;
+    margin-bottom: 1rem;
+    
+        @include m.telefono {
+            margin-bottom: 1rem;
+        }
+    
+
+    p.nombre-escenario{
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .nombre-escenario::after{
+        content: '';
+        display: block;
+        width: 20rem;
+        height: 10rem;
+        background-size: 15rem;
+        background-repeat: no-repeat;
+        background-position: center center;
+        margin: 2rem auto 0 auto;
+    }
+
+    
+}
+
+
+.edm .nombre-escenario::after{
+    background-image: url(../img/icono_edm.png);
+}
+
+.rock .nombre-escenario::after{
+    background-image: url(../img/icono_rock.png);
+}
+
+.calendario{
+    @include m.resetear-ul;
+
+    li{
+        padding: 2.5rem;
+        font-weight: 700;
+        span{
+            font-weight: 400;
+        }
+    }
 }
 
 .bg-verde{
     background-color: v.$verde;
+
+    li:nth-child(odd){
+        background-color: darken($color: v.$verde, $amount: 10%);
+    }
 }
 
 .bg-amarillo{
     background-color: v.$amarillo;
+
+    li:nth-child(odd){
+        background-color: darken($color: v.$amarillo, $amount: 13%);
+    }
 }
 
