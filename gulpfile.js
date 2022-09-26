@@ -32,9 +32,17 @@ function css(done)  {
     done();//callback que avisa a gulp que llegamos al final
 }
 
-//? OBSERVA TODOS LOS ARCHIVOS SCSS Y LLAMA LA FUNCION (CSS)
+//? FUNCION QUE IDENTIFICA LOS ARCHIVOS .JS
+function javascript(done) {
+    src('src/js/**/*.js')
+        .pipe(dest('build/js'));
+    done()
+}
+
+//? OBSERVA TODOS LOS ARCHIVOS SCSS Y LLAMA LA FUNCION (CSS) y (javascript)
 function dev(done) {
     watch('src/scss/**/*.scss', css)
+    watch('src/js/**/*.js', javascript)
 
     done();
 }
@@ -84,7 +92,8 @@ function versionAvif(done){
 }
 
 exports.css = css;
+exports.js = javascript;
 exports.imagenes = imagenes;
 exports.versionWebp = versionWebp;
 exports.versionAvif = versionAvif;
-exports.dev = parallel(versionAvif,imagenes,versionWebp, dev); //paralell ejecuta las tareas en paralelo 
+exports.dev = parallel(versionAvif,imagenes,versionWebp,javascript, dev); //paralell ejecuta las tareas en paralelo 
