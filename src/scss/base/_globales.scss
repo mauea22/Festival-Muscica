@@ -16,6 +16,11 @@ html{
 body{
     font-family: v.$fuente-principal;
     font-size: 1.6rem;
+
+    //fijar el body cuando abrimos ventana modal
+    &.fijar-body{
+        overflow: hidden;
+    }
 }
 
 p{

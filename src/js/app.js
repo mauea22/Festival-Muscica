@@ -41,16 +41,45 @@ function mostrarImagen(id) {
     <img loading="lazy" width="200" height="300" src="/build/img/grande/${id}.jpg" alt="imagen galeria">
     `;
 
-    //crea un div
+    //? CREAR LA GALERIA
+    // crea un div en la constante overlay
     const overlay = document.createElement('div');
     //en este div inserta la imagen
     overlay.appendChild(imagen);
     //le damos una clase para configurar la vista
     overlay.classList.add('overlay');
+    overlay.onclick = function () {
+        const body = document.querySelector('body');
+        //remover la clase que deja el body sin scroll
+        body.classList.remove('fijar-body')
+        //eliminar el overlay
+        overlay.remove()
+    }
 
     //? MOSTRAR EL DIV QUE CONTIENE LA IMAGEN EN EL BODY
     //tomamos el body mediante su etiqueta
     const body = document.querySelector('body');
     //insertamos en el body, el div que contiene la imagen
     body.appendChild(overlay);
+    
+    //aplicar clase para sacar el scroll cuando esta la imagen abierta
+    body.classList.add('fijar-body')
+
+
+    //? cerrar el modal
+    const cerrarModal = document.createElement('p');
+    cerrarModal.textContent = 'X';
+    cerrarModal.classList.add('btn-cerrar');
+
+    //cerrar la ventana modal
+    cerrarModal.onclick = function () {
+        const body = document.querySelector('body');
+        //remover la clase que deja el body sin scroll
+        body.classList.remove('fijar-body')
+        //eliminar el overlay
+        overlay.remove()
+    }
+
+    //agregamos al overlay el cerrarModal
+    overlay.appendChild(cerrarModal);
 }
