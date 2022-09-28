@@ -1,0 +1,30 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+
+.galeria{
+    padding: 5rem 0;
+
+    h3{
+        text-align: center;
+    }
+}
+
+.galeria-imagenes{
+    //resetear ul mediante el mixin creado
+    @include m.resetear-ul;
+    //mixin grid 
+    @include m.grid(2);
+    //mixin para que en dispositivos mas grandes que un telefono se vean las imagenes en 3 columnas
+    @include m.telefono{
+        @include m.grid(3)
+    }
+    //tamaños para mas grandes que tablet
+    @include m.tablet{
+        @include m.grid(4)
+    }
+    //tamaños para mas grandes que desktop
+    @include m.desktop{
+        @include m.grid(6)
+    }
+}
