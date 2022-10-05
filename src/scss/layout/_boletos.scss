@@ -1,0 +1,77 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+
+.tickets {
+    padding: 5rem 0;
+
+    h3{
+        text-align: center;
+        color: v.$blanco;
+        margin-bottom: 2rem;
+    }
+
+    .contenedor-tickets{
+        @include m.tablet{
+            @include m.grid(2)
+        }
+    }
+}
+
+.pase{
+
+    .nombre-pase {
+        text-align: center;
+        color: v.$blanco;
+        font-size: 2.6rem;
+    }
+    //! el & toma la clase padre en este caso es (.pase)
+
+    &-header, &-footer {
+        padding: .5rem;
+        
+        p {
+            text-align: center;
+            color: v.$blanco;
+            margin: 0;
+        }
+    }
+
+    &-header{
+        background-color: v.$rosa;
+
+        p {
+            text-transform: uppercase;
+            font-size: 1.6rem;
+        }
+    }
+
+    &-body{
+        background-color: v.$blanco;
+        margin: 0;
+
+        ul {
+            @include m.resetear-ul ;
+            margin: 0;
+            
+
+            li, :nth-child(odd){
+                text-decoration: none;
+                padding: 1rem;
+                background-color: v.$blanco;
+                border-bottom: 1px solid #e1e1e1;
+            }
+        }
+        }
+
+        
+
+    &-footer{
+        background-color: v.$morado;
+
+        p {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+    }
+}
