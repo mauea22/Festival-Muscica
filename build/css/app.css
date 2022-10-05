@@ -365,6 +365,13 @@ img {
 .header {
   background-color: #4CB8B3;
 }
+@media (min-width: 768px) {
+  .header.fijo {
+    position: fixed;
+    width: 100%;
+    box-shadow: 1rem 1rem 2.4rem rgba(0, 0, 0, 0.7);
+  }
+}
 .header h1 {
   color: #ffffff;
   text-align: center;

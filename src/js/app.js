@@ -3,9 +3,57 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 function iniciarApp() {
+    navegacionBarraFija();
     crearGaleria();
+    scrollNav();
 }
 
+//? Fijar la barra de navegacion cuando hacemos scroll desde la seccion sobre-festival
+function navegacionBarraFija() {
+    //selecciono el header
+    const barra = document.querySelector('.header');
+
+    //sellecciono la seccion desde donde va a quedar fija la barra
+    const sobreFestival = document.querySelector('.sobre-festival');
+
+    //escucho el evento scroll
+    window.addEventListener('scroll', function(){
+        //datos de donde esta el elemento
+        console.log(sobreFestival.getBoundingClientRect());
+        //si el elemento esta en ese lugar
+        if (sobreFestival.getBoundingClientRect().bottom < 0) {
+            //agrego la clase 'fijo' al header mediante la variable barra
+            barra.classList.add('fijo');
+        } else {
+            barra.classList.remove('fijo');
+        }
+    });
+}
+
+//? funcion scroll 
+function scrollNav() {
+    //selecciono todos los elementos (a) dentro de la clase .navegacion-principal
+    const enlaces = document.querySelectorAll('.navegacion-principal a');
+
+    //itero sobre ellos 
+    enlaces.forEach(enlace => {
+        //escucho el evento click
+        enlace.addEventListener('click', function(e){
+            //prevengo el comportamiento por default
+            e.preventDefault();
+
+            //obtengo el value en una variable
+            const seccionScroll = e.target.attributes.href.value;
+
+            //selecciono ese href
+            const seccion = document.querySelector(seccionScroll);
+
+            //llamo al metodo scrollIntoView() y le paso el objeto con el par {behavior:'smooth'} que es el efecto deseado
+            seccion.scrollIntoView({behavior:'smooth'})
+        });
+    });
+
+}
 
 function crearGaleria() {
     //constante que selecciona el div con la clase 'galeria-imagenes', para seleccionar esa clase usar el "."

@@ -4,6 +4,15 @@
 .header{
     background-color: v.$verde;
 
+    @include m.tablet{
+        &.fijo{
+            position: fixed;
+            width: 100%;
+            //para que de la sensacion de sombra
+            box-shadow: 1rem 1rem 2.4rem  rgba(0, 0, 0, 0.7);
+        }
+    }
+
     h1 {
         color: v.$blanco;
         text-align: center;
