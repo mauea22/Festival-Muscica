@@ -10,31 +10,45 @@ const {src, dest, watch, parallel} = require("gulp");
 //css
 const sass = require('gulp-sass')(require('sass'));
 const plumber = require('gulp-plumber');
+const autoprefixer = require('autoprefixer'); //asegura el navegador que indiquemos
+const cssnano = require('cssnano'); //comprime el código css
+const postcss = require('gulp-postcss');  // transforma por medio de prefixer y cssnano
+const sourcemaps = require('gulp-sourcemaps'); // genera un archivo que permite poder leer el css comprimido
 
-//imagenes
+//imágenes
 const avif = require('gulp-avif');
 const webp = require('gulp-webp');
 const imagemin = require('gulp-imagemin');
 const cache = require('gulp-cache');
 
+//JavaScript
+const terser = require('gulp-terser-js');
 
-//? FUNCION QUE IDENTIFICA, COMPILA Y ALMACENA TODOS LOS ARCHIVOS SCSS A CSS
+
+
+//? FUNCIÓN QUE IDENTIFICA, COMPILA Y ALMACENA TODOS LOS ARCHIVOS SCSS A CSS
 
 function css(done)  {
     // Identificar el archivo sass
     src('src/scss/**/*.scss') //los **/* hace que de forma recursiva se compilen todos los archivos scss
+    .pipe(sourcemaps.init() )
     .pipe(plumber())
     //compilarlo
     .pipe( sass())
+    .pipe( postcss([autoprefixer(),cssnano()]))
     //almacena en el disco duro
+    .pipe(sourcemaps.write('.')) // escribe el archivo map de css
     .pipe(dest('build/css'));
 
     done();//callback que avisa a gulp que llegamos al final
 }
 
-//? FUNCION QUE IDENTIFICA LOS ARCHIVOS .JS
+//? FUNCIÓN QUE IDENTIFICA LOS ARCHIVOS .JS
 function javascript(done) {
     src('src/js/**/*.js')
+        .pipe(sourcemaps.init())
+        .pipe(terser())
+        .pipe(sourcemaps.write('.'))
         .pipe(dest('build/js'));
     done()
 }
@@ -48,7 +62,7 @@ function dev(done) {
 }
 
 
-//? FUNCION PARA AUTOMATIZAR LA CONVERSION DE IMÁGENES AL FORMATO WEBP
+//? FUNCIÓN PARA AUTOMATIZAR LA CONVERSION DE IMÁGENES AL FORMATO WEBP
 
 function versionWebp(done) {
     //opciones de calidad para las imágenes (va de 0 a 100)
@@ -59,21 +73,21 @@ function versionWebp(done) {
     //scr es la ruta donde están todas las imágenes
     src('src/img/**/*.{jpg,png}')
     .pipe( webp(opciones)) //paso opciones como parámetro para que toma la quality
-    .pipe( dest('build/img')) //destino donde se guardan las imagenes
+    .pipe( dest('build/img')) //destino donde se guardan las imágenes
 
-    done() //avisa que la funcion terminó
+    done() //avisa que la función terminó
 }
 
 
-//? FUNCION PARA ALIGERAR LAS IMAGENES
+//? FUNCIÓN PARA ALIGERAR LAS IMÁGENES
 
 function imagenes(done){
     const opciones = {
         optimizationLevel: 3
     }
-    //scr es la ruta donde estan todas las imagenes
+    //scr es la ruta donde están todas las imágenes
     src('src/img/**/*.{jpg,png}')
-    .pipe( cache(imagemin(opciones))) //paso opciones como parametro para que toma la quality
+    .pipe( cache(imagemin(opciones))) //paso opciones como parámetro para que toma la quality
     .pipe( dest('build/img')) //destino 
 
     done()
@@ -83,9 +97,9 @@ function versionAvif(done){
     const opciones = {
         quality: 50
     }
-    //scr es la ruta donde estan todas las imagenes
+    //scr es la ruta donde están todas las imágenes
     src('src/img/**/*.{jpg,png}')
-    .pipe( avif(opciones)) //paso opciones como parametro para que toma la quality
+    .pipe( avif(opciones)) //paso opciones como parámetro para que toma la quality
     .pipe( dest('build/img')) //destino 
 
     done()
