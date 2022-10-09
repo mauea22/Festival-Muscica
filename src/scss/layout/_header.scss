@@ -8,8 +8,11 @@
         &.fijo{
             position: fixed;
             width: 100%;
+            top: 0;
+            left: 0;
             //para que de la sensacion de sombra
             box-shadow: 0.5rem 0.5rem 2rem  rgba(0, 0, 0, 0.7);
+
         }
     }
 
