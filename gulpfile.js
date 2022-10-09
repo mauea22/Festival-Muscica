@@ -39,7 +39,7 @@ function javascript(done) {
     done()
 }
 
-//? OBSERVA TODOS LOS ARCHIVOS SCSS Y LLAMA LA FUNCION (CSS) y (javascript)
+//? OBSERVA TODOS LOS ARCHIVOS SCSS Y LLAMA LA FUNCIÓN (CSS) y (javascript)
 function dev(done) {
     watch('src/scss/**/*.scss', css)
     watch('src/js/**/*.js', javascript)
@@ -48,17 +48,17 @@ function dev(done) {
 }
 
 
-//? FUNCION PARA AUTOMATIZAR LA CONVERSION DE IMAGENES AL FORMATO WEBP
+//? FUNCION PARA AUTOMATIZAR LA CONVERSION DE IMÁGENES AL FORMATO WEBP
 
 function versionWebp(done) {
-    //opciones de calidad para las imagenes (va de 0 a 100)
+    //opciones de calidad para las imágenes (va de 0 a 100)
     const opciones = {
         quality:50
     }
 
-    //scr es la ruta donde estan todas las imagenes
+    //scr es la ruta donde están todas las imágenes
     src('src/img/**/*.{jpg,png}')
-    .pipe( webp(opciones)) //paso opciones como parametro para que toma la quality
+    .pipe( webp(opciones)) //paso opciones como parámetro para que toma la quality
     .pipe( dest('build/img')) //destino donde se guardan las imagenes
 
     done() //avisa que la funcion terminó

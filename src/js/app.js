@@ -16,6 +16,9 @@ function navegacionBarraFija() {
     //sellecciono la seccion desde donde va a quedar fija la barra
     const sobreFestival = document.querySelector('.sobre-festival');
 
+    //evitar el salto al fijar el nav
+    const body = document.querySelector('body');
+
     //escucho el evento scroll
     window.addEventListener('scroll', function(){
         //datos de donde esta el elemento
@@ -24,8 +27,10 @@ function navegacionBarraFija() {
         if (sobreFestival.getBoundingClientRect().bottom < 0) {
             //agrego la clase 'fijo' al header mediante la variable barra
             barra.classList.add('fijo');
+            body.classList.add('body-scroll');
         } else {
             barra.classList.remove('fijo');
+            body.classList.remove('body-scroll');
         }
     });
 }
